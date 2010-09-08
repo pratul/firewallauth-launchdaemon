@@ -1,0 +1,23 @@
+h1. IIT Kanpur firewall authentication
+
+h2. LaunchAgent for Mac OS X
+
+This launchd script ensures that the firewall authentication python script (written by "sid0":http://bitbucket.org/sid0) keeps running in the background.
+As long as the network is up, launchd will keep the script running. No more "keep this webpage open in the browser" nonsense.
+
+h2. Setup
+
+# If you haven't already, get the @firewall-auth.py@ script from "http://bitbucket.org/sid0/firewallauth":http://bitbucket.org/sid0/firewallauth
+# Put it somewhere nice and don't move it from that location.
+# Now, open the @in.pratul.firewallauth.plist@ file.
+# In it, edit the firewallauth script file location (remember where you put it?), your firewall username, your firewall password and save it.
+# Copy this plist file to @/Users/yourusername/Library/LaunchAgents/@
+# Make a file called @.launchd.conf@ in your home folder. (which is @/Users/yourusername/@, of course)
+# Open it and put this line in it and save it: <pre>load /Users/yourusername/Library/LaunchAgents/in.pratul.firewallauth.plist</pre>
+# Open a terminal, run @launchctl@.
+# On the launchd% prompt, type this: <pre>load /Users/yourusername/Library/LaunchAgents/in.pratul.firewallauth.plist</pre>
+# That's it. You're done. @launchd@ will now ensure that you're always authenticated to the firewall.
+
+h2. Problem?
+
+If your machine burst into flames, don't email me at @pratul at pratul dot in@.
